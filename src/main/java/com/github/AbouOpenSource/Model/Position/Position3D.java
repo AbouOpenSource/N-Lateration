@@ -1,10 +1,12 @@
 
 
 
-package com.github.AbouOpenSource.Model;
+package com.github.AbouOpenSource.Model.Position;
+import com.github.AbouOpenSource.core.Interface.Position;
+
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
-public class Position {
+public class Position3D implements Position {
 
     static int dimension=0;
     double[] values;
@@ -12,17 +14,21 @@ public class Position {
     double y;
     double z;
 
-    public Position(double x, double y, double z) {
+    public Position3D(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public Position(double ... args) throws Exception {
-        if(Position.dimension == 0){
-             Position.dimension= args.length;
+
+    public Position3D() {
+    }
+
+    public Position3D(double ... args) throws Exception {
+        if(Position3D.dimension == 0){
+             Position3D.dimension= args.length;
         }else
-            if(Position.dimension!=args.length){
+            if(Position3D.dimension!=args.length){
                 throw new Exception("Error With different dim");
         }
         values = new double[args.length];
@@ -60,7 +66,7 @@ public class Position {
     /********************************/
     @Override
     public String toString() {
-        return "Position{" +
+        return "Position3D {" +
                 "x=" + x +
                 ", y=" + y +
                 ", z=" + z +
@@ -68,7 +74,7 @@ public class Position {
     }
     /*******************************/
 
-    public double distanceFromToPosition(Position position){
+    public double distanceFromToPosition(Position3D position){
 
         return sqrt(
 
@@ -80,6 +86,7 @@ public class Position {
                  );
     }
 
-
-
+    public int getDimension() {
+        return 3;
+    }
 }

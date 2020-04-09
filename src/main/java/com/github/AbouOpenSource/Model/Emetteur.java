@@ -1,5 +1,9 @@
 package com.github.AbouOpenSource.Model;
 
+import com.github.AbouOpenSource.Model.Position.Position2D;
+import com.github.AbouOpenSource.Model.Position.Position3D;
+import com.github.AbouOpenSource.core.Interface.Position;
+
 public class Emetteur {
     Position position ;
     double raduis ;
@@ -7,7 +11,11 @@ public class Emetteur {
     public Emetteur() {
     }
 
-    public Emetteur(Position position) {
+    public Emetteur(Position3D position) {
+        this.position = position;
+    }
+
+    public Emetteur(Position2D position){
         this.position = position;
     }
 
@@ -15,16 +23,13 @@ public class Emetteur {
         this.raduis = raduis;
     }
 
-    public Emetteur(Position position, double raduis) {
+    public Emetteur(Position3D position, double raduis) {
         this.position = position;
         this.raduis = raduis;
     }
 
     /**************************************/
 
-    public Position getPosition() {
-        return position;
-    }
 
     public double getraduis() {
         return raduis;
@@ -32,7 +37,7 @@ public class Emetteur {
 
     /****************************************/
 
-    public void setPosition(Position position) {
+    public void setPosition(Position3D position) {
         this.position = position;
     }
 
@@ -43,7 +48,7 @@ public class Emetteur {
     /*************************************/
 
 
-    public double distanceFromToPosition(Position position){
+    public double distanceFromToPosition(Position3D position){
         return this.position.distanceFromToPosition(position);
     }
 
@@ -51,7 +56,7 @@ public class Emetteur {
     
     
     
-    public double deltaRaduisDistance(Position position){
+    public double deltaRaduisDistance(Position3D position){
        return Math.abs(this.distanceFromToPosition(position) - this.getraduis());
     }
     /**************************************/

@@ -1,17 +1,19 @@
 package com.github.AbouOpenSource.Model;
 
-public class Device {
-    Position position;
+import com.github.AbouOpenSource.Model.Position.Position3D;
 
-    public Device(Position position) {
+public class Device {
+    Position3D position;
+
+    public Device(Position3D position) {
         this.position = position;
     }
 
-    public Position getPosition() {
+    public Position3D getPosition() {
         return position;
     }
 
-    public void setPosition(Position position) {
+    public void setPosition(Position3D position) {
         this.position = position;
     }
 
